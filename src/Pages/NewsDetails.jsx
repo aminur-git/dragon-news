@@ -31,7 +31,7 @@ const NewsDetails = () => {
             </figure>
             <div className="card-body items-start text-left">
               <h2 className="card-title font-bold text-xl  md:text-3xl">{title}</h2>
-              <p className="text-justify text-lg">
+              <p className="text-justify md:text-lg">
                 {details}
               </p>
               <div className="card-actions mt-4">

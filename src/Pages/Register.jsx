@@ -1,10 +1,12 @@
-import React, { useContext } from "react";
-import { Link } from "react-router";
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 
 
 const Register = () => {
-  const {createUser, setUser, user} = useContext(AuthContext) 
+  const {createUser, setUser, user, profileUpdate} = useContext(AuthContext) 
+  const [error, setError] = useState()
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,10 +19,17 @@ const Register = () => {
     createUser(email, password)
     .then((result)=>{
       setUser(result.user)
+      profileUpdate({displayName: name, photoURL: photo})
+      .then(()=>{
+        navigate('/')
+      })
+      .catch((err)=>{
+        setError([...error, err])
+      })
       
     })
     .catch(error=>{
-      console.log(error.message)
+      setError(error.message)
     })
     
 
@@ -91,6 +100,11 @@ const Register = () => {
                   className="w-full input border-none   bg-gray-100 text-sm"
                   required
                 />
+              </div>
+              <div>
+                {
+                  error && <p className="text-red-600 text-xs">{error}</p>
+                }
               </div>
 
               <button
