@@ -8,7 +8,7 @@ import { BsArrowLeft } from "react-icons/bs";
 const NewsDetails = () => {
   const { data } = useLoaderData();
   const news = data[0];
-  console.log(news);
+//   console.log(news);
 
   const { title, image_url, details,  } = news;
 

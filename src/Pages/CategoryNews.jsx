@@ -4,7 +4,7 @@ import NewsCard from "../Components/Layout-Component/NewsCard";
 const CategoryNews = () => {
 
     const {data: news } = useLoaderData();
-    console.log(news)
+    // console.log(news)
 
     return (
         <div className="space-y-3">

@@ -7,7 +7,7 @@
     const location = useLocation()
     const navigate = useNavigate()
     const [error, setError] = useState()
-    console.log(location)
+    // console.log(location)
 
     const handleSubmit = (e)=>{
       e.preventDefault()
