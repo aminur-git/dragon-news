@@ -5,6 +5,7 @@ import AuthLayout from "../layouts/AuthLayout";
 import Login from "../Pages/Login";
 import Register from "../Pages/Register";
 import NewsDetails from "../Pages/NewsDetails";
+import PrivatesRoutes from "./PrivatesRoutes";
 
 const Router = createBrowserRouter([
   {
@@ -27,7 +28,12 @@ const Router = createBrowserRouter([
   },
   {
     path: "news/:id",
-    element: <NewsDetails></NewsDetails>,
+    loader: (({params})=>
+    fetch(`https://openapi.programming-hero.com/api/news/${params.id}`)
+    ),
+    element: <PrivatesRoutes>
+      <NewsDetails></NewsDetails>
+    </PrivatesRoutes>,
   },
   {
     path: "auth",
