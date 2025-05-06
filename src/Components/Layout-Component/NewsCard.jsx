@@ -1,6 +1,7 @@
 import React from "react";
 import { FaStar, FaRegEye, FaShareAlt } from "react-icons/fa";
 import { HiOutlineBookmark } from "react-icons/hi2";
+import { Link } from "react-router";
 
 const NewsCard = ({ news }) => {
   const { title, image_url, details, total_view, rating, author } = news;
@@ -36,9 +37,9 @@ const NewsCard = ({ news }) => {
         </figure>
         <p className="text-gray-600 text-sm">
           {details.length > 200 ? details.slice(0, 200) + "..." : details}
-          <span className="text-orange-500 font-semibold ml-1 cursor-pointer">
+          <Link to={`/news/${news._id}`} className="text-orange-500 font-semibold ml-1 cursor-pointer">
             Read More
-          </span>
+          </Link>
         </p>
       </div>
 

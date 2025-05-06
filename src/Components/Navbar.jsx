@@ -4,7 +4,7 @@ import userIcon from "../assets/user.png";
 import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
-const {person, user, logOut} = useContext(AuthContext)
+const { user, logOut} = useContext(AuthContext)
 
 
   return (
